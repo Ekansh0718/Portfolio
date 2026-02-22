@@ -1,0 +1,213 @@
+/* ================================
+   NAVBAR (FIXED + CENTERED)
+================================ */
+
+.navbar {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+
+  /* CONTROL WIDTH */
+  width: min(1200px, calc(100% - 64px));
+
+  /* GLASS EFFECT (ONLY HERE) */
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 14px 28px;
+}
+
+/* Logo */
+.logo {
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+/* Nav links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.nav-links a {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.nav-links a:hover {
+  color: #e6c068;
+}
+.nav-links a.active {
+  color: #e6c068;
+}
+
+/* Hamburger button */
+.hamburger {
+  display: none;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 1.2rem;
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* Mobile Menu */
+/* =========================
+   MOBILE MENU (GLASS CARD)
+   ========================= */
+
+.mobile-menu {
+  position: fixed;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%) scale(0.96);
+
+  width: 88%;
+  max-width: 360px;
+
+  padding: 20px 18px 18px;
+  border-radius: 22px;
+
+  background: rgba(20, 20, 20, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+
+  display: none;
+  flex-direction: column;
+  gap: 14px;
+
+  z-index: 999;
+  transition: all 0.25s ease;
+}
+
+.mobile-menu.active {
+  display: flex;
+  transform: translateX(-50%) scale(1);
+}
+
+/* Close button */
+.close-menu {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+
+  width: 36px;
+  height: 36px;
+
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-size: 1rem;
+}
+
+/* Menu links */
+.mobile-menu a {
+  padding: 10px 12px;
+  border-radius: 10px;
+
+  text-decoration: none;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+
+  transition: all 0.2s ease;
+}
+
+/* Hover */
+.mobile-menu a:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+}
+
+/* Active link (like your image) */
+.mobile-menu a.active {
+  color: #e6c068; /* SAME yellow */
+  background: rgba(230, 192, 104, 0.12);
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+/* =========================
+   ABOUT SECTION
+   ========================= */
+
+/* =========================
+   ABOUT IMAGE GLOW (FIXED)
+   ========================= */
+
+.about-image {
+  position: relative;
+  border-radius: 22px;
+  padding: 16px;
+  overflow: visible;
+  z-index: 1;
+}
+
+/* GLOW LAYER */
+.about-image::after {
+  content: "";
+  position: absolute;
+  inset: -18px;
+  border-radius: 30px;
+  background: radial-gradient(
+    circle,
+    rgba(234, 179, 8, 0.35),
+    transparent 65%
+  );
+  filter: blur(26px);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.35s ease;
+}
+
+/* IMAGE */
+.about-image img {
+  width: 100%;
+  border-radius: 16px;
+  display: block;
+  position: relative;
+  z-index: 2;
+}
+
+/* HOVER TRIGGER */
+.about-image:hover::after {
+  opacity: 1;
+}
+
+.about-image:hover {
+  transform: translateY(-4px);
+  transition: transform 0.3s ease;
+}

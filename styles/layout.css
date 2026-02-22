@@ -1,0 +1,101 @@
+/* =========================
+   LAYOUT SYSTEM
+   ========================= */
+
+/* ---------- GLOBAL CONTAINER ---------- */
+.section {
+  position: relative;
+}
+
+.section-inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+/* ---------- HERO ---------- */
+#hero .section-inner {
+  min-height: 90vh;
+  justify-content: center;
+}
+
+/* ---------- SNAPSHOT ---------- */
+#snapshot .section-inner {
+  max-width: 800px;
+}
+
+/* ---------- OWNED PROJECTS ---------- */
+#owned .section-inner {
+  gap: var(--space-xl);
+}
+
+/* ---------- TWO COLUMN LAYOUT ---------- */
+.two-column {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+}
+
+/* ---------- STACK FOR MOBILE ---------- */
+@media (max-width: 900px) {
+  .two-column {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: 44px;
+  }
+
+  h2 {
+    font-size: 32px;
+  }
+}
+
+/* ---------- JOURNEY ---------- */
+#journey .section-inner {
+  max-width: 900px;
+}
+
+/* ---------- CONTACT ---------- */
+#contact .section-inner {
+  align-items: flex-start;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero-inner {
+  max-width: 1200px;
+  padding: 0 64px;
+  margin: 0 auto;
+}
+/* SAFETY RESET */
+body {
+  margin: 0;
+  font-family: 'Satoshi', sans-serif;
+  background: #0b0f14;
+  color: #eaeaea;
+  overflow-x: hidden;
+}
+
+/* HERO FIX */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+/* SECTION FIX */
+.section {
+  padding: 120px 0;
+}
+
+/* SECTION INNER FIX */
+.section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}

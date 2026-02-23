@@ -26,7 +26,7 @@ export const skillsData = {
 
   ai: [
     { name: "AI Voice Agents", icon: "devicon-python-plain colored" },
-    { name: "Prompt Engineering", icon: "devicon-openai-original" }
+    { name: "Prompt Engineering", icon: "fas fa-brain" }
   ],
 
   tools: [

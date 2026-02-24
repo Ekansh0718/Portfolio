@@ -2,8 +2,9 @@
    MAIN UI HANDLER
    ========================= */
 import "./interactions.js";
+
 import "./animations.js";
-import { Analytics } from "@vercel/analytics/next"
+
 document.addEventListener("DOMContentLoaded", () => {
   console.log("Portfolio loaded");
 
@@ -24,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  <Analytics/>
+ 
   /* ---------- SCROLL SPY ---------- */
   const sections = document.querySelectorAll("section[id]");
   const navLinks = document.querySelectorAll(".nav-links a");

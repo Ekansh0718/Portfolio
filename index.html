@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="adnetwork-verify" content="a3d463e7-ba85-4e41-ba4d-1ee9efdb7b2c" />
   <title>Ekansh Saxena | Software Developer</title>
 
   <!-- Font -->
@@ -674,6 +675,21 @@
 
 </section>
 
+<!-- THEME TOGGLE (Vercel Style) -->
+<div class="theme-toggle">
+  <button class="theme-btn" data-theme="light">
+    <i class="fas fa-sun"></i>
+  </button>
+
+  <button class="theme-btn" data-theme="dark">
+    <i class="fas fa-moon"></i>
+  </button>
+
+  <button class="theme-btn" data-theme="system">
+    <i class="fas fa-desktop"></i>
+  </button>
+</div>
+
 <footer class="footer-section">
 
   <div class="footer-container">
@@ -758,5 +774,41 @@
   lucide.createIcons();
 </script>
 
+<script>
+const buttons = document.querySelectorAll('.theme-btn');
+const body = document.body;
+
+// Apply saved theme
+const savedTheme = localStorage.getItem('theme') || 'dark';
+applyTheme(savedTheme);
+
+buttons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const theme = btn.getAttribute('data-theme');
+    applyTheme(theme);
+    localStorage.setItem('theme', theme);
+  });
+});
+
+function applyTheme(theme){
+  body.classList.remove('light-mode','dark-mode');
+
+  buttons.forEach(b => b.classList.remove('active'));
+
+  if(theme === 'light'){
+    body.classList.add('light-mode');
+    document.querySelector('[data-theme="light"]').classList.add('active');
+  }
+  else if(theme === 'dark'){
+    body.classList.add('dark-mode');
+    document.querySelector('[data-theme="dark"]').classList.add('active');
+  }
+  else {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    body.classList.add(prefersDark ? 'dark-mode' : 'light-mode');
+    document.querySelector('[data-theme="system"]').classList.add('active');
+  }
+}
+</script>
 </body>
 </html>
